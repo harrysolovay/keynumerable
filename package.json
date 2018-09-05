@@ -1,0 +1,47 @@
+{
+  "name": "keynumerable",
+  "description": "a map(ish) structure whose entry's items are unique values, each of which can be used as keys to get & set the given entry",
+  "author": "Harry Solovay <harrysolovay@gmail.com> (harrysolovay.com)",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "lib/keynumerable.cjs.js",
+  "module": "lib/keynumberable.es.js",
+  "files": [
+    "lib"
+  ],
+  "repository": "https://github.com/harrysolovay/keynumerable",
+  "keywords": [
+    "data",
+    "structure",
+    "map",
+    "enum",
+    "multimap",
+    "keys",
+    "keynumerable"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/plugin-syntax-object-rest-spread": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-flow": "^7.0.0",
+    "babel-eslint": "^9.0.0",
+    "eslint": "^5.5.0",
+    "eslint-plugin-flowtype": "^2.50.0",
+    "eslint-plugin-flowtype-errors": "^3.6.0",
+    "flow-bin": "^0.80.0",
+    "flow-copy-source": "^2.0.2",
+    "regenerator-runtime": "^0.12.1",
+    "rimraf": "^2.6.2",
+    "rollup": "^0.65.0",
+    "rollup-plugin-babel": "^4.0.3",
+    "rollup-plugin-eslint": "^5.0.0"
+  },
+  "scripts": {
+    "clean": "rimraf lib",
+    "prebuild": "npm run clean",
+    "start": "rollup -c -w",
+    "build": "rollup -c",
+    "prepublish": "yarn clean && yarn build"
+  }
+}
