@@ -1,4 +1,4 @@
-const Keynumerable = require('../lib/keynumerable.cjs').default
+const Keynumerable = require('../lib/index.cjs').default
 
 console.log('\n\n')
 console.log('constructing tests')
@@ -16,15 +16,18 @@ const with2DArray = new Keynumerable([
   ['bam', false, 6],
 ])
 console.log(
-  `should be [['one', '2', 3], ['ex', 'y', 2], ['bam', false, 6]]: `,
+  `should be [['one', '2', 3], ['ex', 'y', 2], ['bam', false, 6]]:`,
   with2DArray.get()
 )
 
 const withAnotherKeynumerableInstance = new Keynumerable(with1DArray)
 console.log(
-  `should be [['I', 'am', 'a', '1D', 'array']]: `,
+  `should be [['I', 'am', 'a', '1D', 'array']]:`,
   withAnotherKeynumerableInstance.get()
 )
+
+const withNull = new Keynumerable()
+console.log('should be []:', withNull.get())
 
 console.log('\n\n')
 console.log('setter tests')
@@ -74,12 +77,12 @@ console.log(
 console.log('\n')
 
 console.log(
-  'set with conflicting object as values – before: ',
+  'set with conflicting object element – before: ',
   keynumerable.get()
 )
 keynumerable.set([ { somekey: 'somevalue'}, 'this also works' ])
 console.log(
-  'set with conflicting object as values – after: ',
+  'set with conflicting object element – after: ',
   keynumerable.get()
 )
 
