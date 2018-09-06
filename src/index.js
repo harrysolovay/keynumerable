@@ -1,7 +1,26 @@
-// add typings!
+// @flow
 
 
-const aIncludesE = (a, e) => {
+type elementType = any
+type entryType = elementType[]
+type containerType = entryType[]
+
+type keynumerableType = {
+  container: containerType,
+  get: (elementType | null) => entryType | containerType,
+  set: (entryType) => containerType | null,
+  delete: (elementType) => entryType,
+}
+
+type KeynumerableArgs =
+  | elementType
+  | entryType
+  | containerType
+  | Keynumerable
+  | null
+
+
+const aIncludesE = (a: entryType, e: elementType): boolean => {
   for(let i = 0; i < a.length; i++) {
     if(JSON.stringify(a[i]) === JSON.stringify(e)) {
       return true
@@ -13,23 +32,37 @@ const aIncludesE = (a, e) => {
 
 export default class Keynumerable {
 
-  constructor(args) {
-    this.container = (
-      // 1D array
-      Array.isArray(args) && !Array.isArray(args[0])
-        ? [args]
-        // 2D array
-        : Array.isArray(args[0])
-          ? args
-          // Keynumerable instance
-          : args instanceof Keynumerable
-            ? args.container
-            // other type
-            : [[args]]
-    )
+  container: containerType
+
+  constructor(args: any) {
+
+    this.container = (() => {
+
+      if(!args) {
+        return []
+      }
+    
+      if(args instanceof Array && !args[0] instanceof Array) {
+        return [ args ]
+      }
+
+      else if(args[0] && args[0] instanceof Array) {
+        return args
+      }
+
+      else if(args instanceof Keynumerable) {
+        return args.container
+      }
+
+      else {
+        return [[ args ]]
+      }
+    
+    })()
+
   }
 
-  get(e) {
+  get(e: elementType): entryType | containerType {
     // if element argument
     return e
       // return the row containing the element
@@ -38,11 +71,11 @@ export default class Keynumerable {
       : this.container
   }
 
-  set(newEntry) {
+  set(newEntry: entryType): containerType | null {
     // save entries to beremoved from container (the return)
     let replaced = []
     // reduce container into into itself
-    this.container = this.container.reduce((accumulator, entry) => {
+    return this.container.reduce((accumulator, entry) => {
       // whether entry should be in the reduced container
       // determined by whether the two have items in common
       let replaces = false
@@ -63,11 +96,12 @@ export default class Keynumerable {
 
     }, [ newEntry ])
 
+    // $FlowFixMe
     return replaced
 
   }
 
-  delete(key) {
+  delete(key: elementType): entryType | void {
     for(let i = 0; i < this.container.length; i++) {
       if(aIncludesE(this.container[i], key)) {
         return this.container.splice(i, 1)

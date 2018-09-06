@@ -1,6 +1,6 @@
 {
   "name": "keynumerable",
-  "description": "a map(ish) structure whose entry's items are unique values, each of which can be used as keys to get & set the given entry",
+  "description": "a map-like data structure whose entry's items are unique values, each of which can be used as keys to get & set the given entry",
   "author": "Harry Solovay <harrysolovay@gmail.com> (harrysolovay.com)",
   "version": "1.0.0",
   "license": "MIT",
@@ -31,6 +31,8 @@
     "eslint-plugin-flowtype-errors": "^3.6.0",
     "flow-bin": "^0.80.0",
     "flow-copy-source": "^2.0.2",
+    "nodemon": "^1.18.4",
+    "npm-run-all": "^4.1.3",
     "regenerator-runtime": "^0.12.1",
     "rimraf": "^2.6.2",
     "rollup": "^0.65.0",
@@ -40,8 +42,10 @@
   "scripts": {
     "clean": "rimraf lib",
     "prebuild": "npm run clean",
-    "start": "rollup -c -w",
-    "build": "rollup -c",
-    "prepublish": "yarn clean && yarn build"
+    "build": "rollup -c & flow-copy-source src lib",
+    "start:lib": "rollup -c -w",
+    "start:demo": "nodemon node demo/index.js",
+    "start": "run-p start:lib start:demo",
+    "prepublish": "npm run clean && npm run build"
   }
 }
