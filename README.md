@@ -5,7 +5,7 @@ Keynumerable [![npm version](https://img.shields.io/npm/v/keynumerable.svg?style
 
 ## Overview
 
-####Why?
+#### Why?
 Have you ever run into a situation where you'd like to use a map, if not for the fact that you needed to set and get entries with numerous keys per entry? This library solves the problem by allowing entry elements to be the keys to their parent (entry). Often times, it's useful to blur the line between key and value (like enums, hence the name "Keynumerable"). Maps don't enable lookups of such flexibility. Keynumerable, on the other hand, gives you a tool for setting and getting entries. Without needing a concise entry structure. And without needless data replication.
 
 Consider the following example: I want a data structure that carries the following for each of its entries: (1) a class constructor, (2) an instance of that class, and (3) the name of that instance as a string. I also want to be able to get the entry using either the class constructor, the instance, or the instance name.
@@ -31,7 +31,7 @@ Let's say you want to get the entry using the class constructor. In both instanc
 const retrieved = example.get(Constructor)
 ```
 
-####How?
+#### How?
 You can set and get keynumerable entries with any of the given entry's elements. Think of the underlaying data structure as a 2D array: an array (termed "container") of arrays (termed "entries") of elements (of any type). This approach has one caveot (an intentional limitation): each element in a keynumerable entry must be unique to, not only that entry, but also all other entries (no repeat values). This makes it the perfect option for managing deep objects and avoiding element duplication.
 
 ## Installation
@@ -151,7 +151,7 @@ console.log(instance.get())
 ```
 
 
-####Why is it good to disallow element repititon?
+#### Why is it good to disallow element repititon?
 Without preventing the same element from existing in multiple entries, accidental multi-setting could occur (accidentally targeting multiple entries with their shared element). The good news is that setting and getting run deep object comparisons, meaning that Keynumerable is a great solution for managing data store instances. If you need to repeat elements, you can set a to-be repeated element within an object that contains a unique property:
 
 ```js
