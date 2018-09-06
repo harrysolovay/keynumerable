@@ -150,7 +150,7 @@ console.log(instance.get())
  */
 ```
 
-Setting entries (without replacing, replacing one, replacing many)
+Removing entries
 
 ```js
 const instance = new Keynumerable([
