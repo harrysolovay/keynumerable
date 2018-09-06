@@ -32,7 +32,7 @@ const retrieved = example.get(Constructor)
 ```
 
 #### How?
-You can set and get keynumerable entries with any of the given entry's elements. Think of the underlaying data structure as a 2D array: an array (termed "container") of arrays (termed "entries") of elements (of any type). This approach has one caveot (an intentional limitation): each element in a keynumerable entry must be unique to, not only that entry, but also all other entries (no repeat values). This makes it the perfect option for managing deep objects and avoiding element duplication.
+You can set and get keynumerable entries with any of the given entry's elements. Think of the underlaying data structure as a 2D array: an array of entries (simple arrays) of elements (of any type). This approach has one caveot (an intentional limitation): each element in a keynumerable entry must be unique to, not only that entry, but also all other entries (no repeat values). This makes it the perfect option for managing deep objects and avoiding element duplication.
 
 ## Installation
 
