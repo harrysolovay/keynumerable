@@ -6,7 +6,7 @@ Keynumerable [![npm version](https://img.shields.io/npm/v/keynumerable.svg?style
 ## Overview
 
 #### Why?
-Have you ever run into a situation where you'd like to use a map, if not for the fact that you needed to set and get entries with numerous keys per entry? This library solves the problem by allowing entry elements to be the keys to their parent (entry). Often times, it's useful to blur the line between key and value (like enums, hence the name "Keynumerable"). Maps don't enable lookups of such flexibility. Keynumerable, on the other hand, gives you a tool for setting and getting entries. Without needing a concise entry structure. And without needless data replication.
+Have you ever run into a situation where you'd like to use a map, if not for the fact that you need to set and get entries with numerous keys per entry? This library solves the problem by allowing entry elements to be the keys to their parent (entry). Often times, it's useful to blur the line between key and value (like enums, hence the name "Keynumerable"). Maps don't enable lookups of such flexibility. Keynumerable, on the other hand, gives you a tool for setting and getting entries. Without needing a concise entry structure. And without needless data replication.
 
 Consider the following example: I want a data structure that carries the following for each of its entries: (1) a class constructor, (2) an instance of that class, and (3) the name of that instance as a string. I also want to be able to get the entry using either the class constructor, the instance, or the instance name.
 
