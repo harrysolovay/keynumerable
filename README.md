@@ -150,6 +150,18 @@ console.log(instance.get())
  */
 ```
 
+Setting entries (without replacing, replacing one, replacing many)
+
+```js
+const instance = new Keynumerable([
+  [ 'one', 'two', 'three' ],
+  [ 'four', 'five', 'six' ],
+])
+instance.remove([ 'four' ])
+console.log(instance.get())
+// [ 'one', 'two', 'three' ]
+```
+
 
 #### Why is it good to disallow element repititon?
 Without preventing the same element from existing in multiple entries, accidental multi-setting could occur (accidentally targeting multiple entries with their shared element). The good news is that setting and getting run deep object comparisons, meaning that Keynumerable is a great solution for managing data store instances. If you need to repeat elements, you can set a to-be repeated element within an object that contains a unique property:

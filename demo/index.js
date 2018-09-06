@@ -26,7 +26,6 @@ console.log(
   withAnotherKeynumerableInstance.get()
 )
 
-
 console.log('\n\n')
 console.log('setter tests')
 console.log('\n')
@@ -81,5 +80,19 @@ console.log(
 keynumerable.set([ { somekey: 'somevalue'}, 'this also works' ])
 console.log(
   'set with conflicting object as values – after: ',
+  keynumerable.get()
+)
+
+console.log('\n\n')
+console.log('remove test')
+console.log('\n')
+
+console.log(
+  'remove – before: ',
+  keynumerable.get()
+)
+keynumerable.remove('this also works')
+console.log(
+  'remove – after: ',
   keynumerable.get()
 )

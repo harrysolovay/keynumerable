@@ -9,7 +9,7 @@ type keynumerableType = {
   container: containerType,
   get: (elementType | null) => entryType | containerType,
   set: (entryType) => containerType | null,
-  delete: (elementType) => entryType,
+  remove: (elementType) => entryType,
 }
 
 type KeynumerableArgs =
@@ -101,7 +101,7 @@ export default class Keynumerable {
 
   }
 
-  delete(key: elementType): entryType | void {
+  remove(key: elementType): entryType | void {
     for(let i = 0; i < this.container.length; i++) {
       if(aIncludesE(this.container[i], key)) {
         return this.container.splice(i, 1)
