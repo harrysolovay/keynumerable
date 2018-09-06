@@ -1,7 +1,7 @@
 Keynumerable [![npm version](https://img.shields.io/npm/v/keynumerable.svg?style=flat)](keynumerable)
 =============================
 
-> a map-like data structure whose entry items are unique values, each of which can be used as getter and setter keys 🔑
+> a map-like data structure whose entry items are unique values, each of which can be used as getter and setter keys
 
 ## Overview
 
