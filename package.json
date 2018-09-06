@@ -2,7 +2,7 @@
   "name": "keynumerable",
   "description": "a map-like data structure whose entry's items are unique values, each of which can be used as keys to get & set the given entry",
   "author": "Harry Solovay <harrysolovay@gmail.com> (harrysolovay.com)",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "main": "lib/keynumerable.cjs.js",
   "module": "lib/keynumberable.es.js",
